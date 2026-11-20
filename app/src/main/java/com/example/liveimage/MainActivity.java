@@ -115,7 +115,7 @@ public class MainActivity extends Activity {
         Segmenter segmenter = Segmentation.getClient(options);
         segmenter.process(InputImage.fromBitmap(bitmap, 0)).addOnSuccessListener(mask -> {
             try {
-                FloatBuffer buffer = mask.getBuffer();
+                FloatBuffer buffer = mask.getBuffer().asFloatBuffer();
                 int mw = mask.getWidth(), mh = mask.getHeight();
                 int w = bitmap.getWidth(), h = bitmap.getHeight();
                 int[] pixels = new int[w * h];
